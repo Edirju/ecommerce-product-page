@@ -1,0 +1,50 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+
+.gallery{
+  &__image-container{
+    // border: 1px solid black;
+    height: 300px;
+    width: 100%;
+    background-image: url(../images/image-product-1.jpg);
+    background-position-y: -35px;
+    background-size: cover;
+    
+  }
+  &__previous{
+    @include m.image-btn(170px, 15px, false);
+  }
+  &__next{
+    @include m.image-btn(170px, 320px, false);
+  }
+  &__thumbnails{
+    display: none;
+    @media (min-width: 1115px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__thumbnail{
+    width: 90px;
+    border-radius: 16px;
+    &:hover{
+      cursor: pointer;
+      border: 2px solid v.$Orange;
+      opacity: 0.75;
+    }
+  }
+  @media (min-width: 1115px) {
+    // border: 1px dotted green;
+    width: 446px;
+    &__image-container{
+      border-radius: 16px;
+      background-position-y: 0;
+      height: 446px;
+      margin-bottom: 32px;
+    }
+    
+  }
+}
+
+
